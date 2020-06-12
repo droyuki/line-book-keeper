@@ -1,5 +1,6 @@
 const express = require("express");
 const linebot = require("linebot");
+const fetch = require("node-fetch");
 
 const app = express();
 
@@ -17,6 +18,12 @@ const linebotParser = bot.parser();
 
 bot.on("message", function(event) {
   console.log(event);
+  // save to google sheet
+  fetch(
+    "https://script.google.com/macros/s/AKfycbzOjEYaLE76UBm5esJkUxPxxzPZsAyB_KKgW7ZMUszFaKw3K3qA/exec"
+  ).then(() => {
+    console.log("done");
+  });
   event
     .reply(event.message.text)
     .then(function(data) {
