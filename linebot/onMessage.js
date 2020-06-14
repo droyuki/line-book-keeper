@@ -1,18 +1,22 @@
 const queryUser = require("../db/queryUser");
 const textHandler = require("./textHandler");
+const authorize = require("../auth/authorize");
 
 async function onMessage(event) {
   console.log(event);
 
-  const user = await queryUser(event.source.userId);
+  const { userId } = event.source;
+  const user = await queryUser(userId);
 
   if (user) {
     const { text } = event.message;
     const response = textHandler(text);
     event.reply(response);
   } else {
-    //TODO: google oauth, get google sheet
-    event.reply("請註冊");
+    // google oauth
+    const authUrl = authorize(userId);
+
+    event.reply(`請登入: ${authUrl}`);
   }
 }
 

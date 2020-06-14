@@ -2,13 +2,23 @@ const query = require("./query");
 
 async function insertUser({
   userId,
-  sheetId,
-  description,
+  ...tokens
+  // sheetId,
+  // description,
 }) {
+  console.log("--- insert:", {
+    userId,
+    tokens,
+  });
   try {
     const result = await query(
-      'INSERT INTO "user"(user_id, sheet_id, description) VALUES($1, $2, $3)',
-      [userId, sheetId, description]
+      'INSERT INTO "user"(user_id, access_token, refresh_token, expiry_date) VALUES($1, $2, $3, to_timestamp($4))',
+      [
+        userId,
+        tokens.access_token,
+        tokens.refresh_token,
+        tokens.expiry_date / 1000,
+      ]
     );
 
     console.log(result);

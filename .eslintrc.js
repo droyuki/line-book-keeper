@@ -4,9 +4,14 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'plugin:node/recommended'],
+  extends: [
+    "eslint:recommended",
+    "plugin:node/recommended",
+  ],
   parserOptions: {
     ecmaVersion: 11,
   },
-  rules: {},
+  rules: {
+    "node/no-unsupported-features/es-syntax": "off",
+  },
 };
