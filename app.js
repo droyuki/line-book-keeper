@@ -9,14 +9,11 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-app.use(bodyParser.json());
-
-// to support URL-encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use("/", rootRouter);
 
 if (process.env.NODE_ENV !== "production") {
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use("/user", userRouter);
   app.use("/users", usersRouter);
   app.use("/register", registerRouter);
