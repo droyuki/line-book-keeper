@@ -1,5 +1,5 @@
 const express = require("express");
-const linebotParser = require("../linebotParser");
+const linebotParser = require("../linebot/parser");
 const router = express.Router();
 
 router.post("/", linebotParser);

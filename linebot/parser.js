@@ -1,5 +1,5 @@
 const linebot = require("linebot");
-const queryUser = require("./db/queryUser");
+const onMessage = require("./onMessage");
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
   channelSecret: process.env.CHANNEL_SECRET,
@@ -8,16 +8,6 @@ const bot = linebot({
 
 const linebotParser = bot.parser();
 
-bot.on("message", async (event) => {
-  console.log(event);
-
-  const user = await queryUser(event.source.userId);
-
-  if (user) {
-    event.reply(JSON.stringify(user));
-  } else {
-    event.reply("請註冊");
-  }
-});
+bot.on("message", onMessage);
 
 module.exports = linebotParser;
