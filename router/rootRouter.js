@@ -1,25 +1,27 @@
+const express = require("express");
 const linebot = require("linebot");
-
+const router = express.Router();
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
   channelSecret: process.env.CHANNEL_SECRET,
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
 });
 
 const linebotParser = bot.parser();
 
-bot.on("message", function(event) {
+bot.on("message", (event) => {
   console.log(event);
-  // save to google sheet
 
   event
     .reply(event.message.text)
-    .then(function(data) {
+    .then(function () {
       // success
     })
-    .catch(function(error) {
+    .catch(function () {
       // error
     });
 });
 
-module.exports = linebotParser;
+router.post("/", linebotParser);
+
+module.exports = router;
