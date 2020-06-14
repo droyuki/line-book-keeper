@@ -29,6 +29,7 @@
     "express-promise-router": "3.0.3",
     "google-spreadsheet": "3.0.11",
     "linebot": "1.5.3",
+    "node-cache": "5.1.1",
     "node-fetch": "2.6.0",
     "pg": "8.2.1"
   },
