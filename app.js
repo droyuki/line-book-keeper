@@ -1,7 +1,7 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 const registerRouter = require("./router/register");
-const rootRouter = require("./router/rootRouter");
+const rootRouter = require("./router/root");
 const userRouter = require("./router/user");
 const usersRouter = require("./router/users");
 

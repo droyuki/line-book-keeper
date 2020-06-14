@@ -1,7 +1,5 @@
-const express = require("express");
 const linebot = require("linebot");
-const queryUser = require("../db/queryUser");
-const router = express.Router();
+const queryUser = require("./db/queryUser");
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
   channelSecret: process.env.CHANNEL_SECRET,
@@ -20,17 +18,6 @@ bot.on("message", async (event) => {
   } else {
     event.reply("請註冊");
   }
-
-  // event
-  //   .reply(event.message.text)
-  //   .then(function () {
-  //     // success
-  //   })
-  //   .catch(function () {
-  //     // error
-  //   });
 });
 
-router.post("/", linebotParser);
-
-module.exports = router;
+module.exports = linebotParser;
