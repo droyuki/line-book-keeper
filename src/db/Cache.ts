@@ -11,19 +11,21 @@ class Cache {
     });
   }
 
-  get(key, storeFunction) {
+  async get(
+    key: NodeCache.Key,
+    storeFunction: Function
+  ) {
     const value = this.cache.get(key);
     if (value) {
       return Promise.resolve(value);
     }
 
-    return storeFunction().then((result) => {
-      this.cache.set(key, result);
-      return result;
-    });
+    const result = await storeFunction();
+    this.cache.set(key, result);
+    return result;
   }
 
-  del(keys) {
+  del(keys: string | number | NodeCache.Key[]) {
     this.cache.del(keys);
   }
 

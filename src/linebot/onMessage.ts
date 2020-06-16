@@ -3,7 +3,11 @@ import textHandler from "./textHandler";
 import authorize from "../auth/authorize";
 
 async function onMessage(event) {
-  console.log(event);
+  console.log(
+    "=====got event=====",
+    event,
+    event.source.userId
+  );
 
   const { userId } = event.source;
   const user = await queryUser(userId);

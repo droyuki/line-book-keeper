@@ -1,4 +1,4 @@
-const query = require("./query");
+import query from "./query";
 
 async function insertUser({
   userId,

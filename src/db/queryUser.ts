@@ -2,7 +2,7 @@ import query from "./query";
 import Cache from "./Cache";
 const cache = new Cache();
 
-async function queryUser(userId) {
+async function queryUser(userId: string) {
   return cache.get(userId, async () => {
     const {
       rows,
