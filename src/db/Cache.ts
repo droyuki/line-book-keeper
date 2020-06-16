@@ -1,6 +1,8 @@
-const NodeCache = require("node-cache");
+import NodeCache from "node-cache";
 
 class Cache {
+  cache: NodeCache;
+
   constructor(ttlSeconds = 86400) {
     this.cache = new NodeCache({
       stdTTL: ttlSeconds,
@@ -43,4 +45,4 @@ class Cache {
   }
 }
 
-module.exports = Cache;
+export default Cache;

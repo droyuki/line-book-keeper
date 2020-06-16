@@ -1,6 +1,6 @@
-const queryUser = require("../db/queryUser");
-const textHandler = require("./textHandler");
-const authorize = require("../auth/authorize");
+import queryUser from "../db/queryUser";
+import textHandler from "./textHandler";
+import authorize from "../auth/authorize";
 
 async function onMessage(event) {
   console.log(event);
@@ -20,4 +20,4 @@ async function onMessage(event) {
   }
 }
 
-module.exports = onMessage;
+export default onMessage;

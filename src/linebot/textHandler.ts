@@ -9,4 +9,4 @@ function textHandler(text) {
   }
 }
 
-module.exports = textHandler;
+export default textHandler;

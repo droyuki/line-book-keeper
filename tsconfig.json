@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    // 針對 typeorm 要開的設定，如果是TypeScript version 3.3 或以上
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    // 如果之後在entity的property設定有問題的話就加以下這行
+    "strictPropertyInitialization": false,
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

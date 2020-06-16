@@ -1,5 +1,6 @@
-const linebot = require("linebot");
-const onMessage = require("./onMessage");
+import linebot from "linebot";
+import onMessage from "./onMessage";
+
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
   channelSecret: process.env.CHANNEL_SECRET,
@@ -10,4 +11,4 @@ const linebotParser = bot.parser();
 
 bot.on("message", onMessage);
 
-module.exports = linebotParser;
+export default linebotParser;

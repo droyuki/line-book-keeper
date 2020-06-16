@@ -29,4 +29,4 @@ async function insertUser({
   }
 }
 
-module.exports = insertUser;
+export default insertUser;

@@ -1,5 +1,5 @@
-const query = require("./query");
-const Cache = require("./Cache");
+import query from "./query";
+import Cache from "./Cache";
 const cache = new Cache();
 
 async function queryUser(userId) {
@@ -16,4 +16,4 @@ async function queryUser(userId) {
   });
 }
 
-module.exports = queryUser;
+export default queryUser;

@@ -1,15 +1,16 @@
-const app = require("express")();
-const bodyParser = require("body-parser");
-const registerRouter = require("./router/register");
-const rootRouter = require("./router/root");
-const userRouter = require("./router/user");
-const usersRouter = require("./router/users");
-const oauthRouter = require("./router/oauth");
+import * as dotenv from "dotenv";
+import bodyParser from "body-parser";
+import express from "express";
+import oauthRouter from "./router/oauth";
+import registerRouter from "./router/register";
+import rootRouter from "./router/root";
+import userRouter from "./router/user";
+import usersRouter from "./router/users";
 
 if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
+  dotenv.config();
 }
-
+const app = express();
 app.use("/", rootRouter);
 
 app.use(bodyParser.json());

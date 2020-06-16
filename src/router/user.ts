@@ -1,5 +1,7 @@
-const router = require("express-promise-router")();
-const queryUser = require("../db/queryUser");
+import express from "express-promise-router";
+import queryUser from "../db/queryUser";
+
+const router = express();
 
 async function getUser(req, res) {
   try {
@@ -15,4 +17,4 @@ async function getUser(req, res) {
 
 router.get("/:userId", getUser);
 
-module.exports = router;
+export default router;

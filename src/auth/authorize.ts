@@ -1,4 +1,4 @@
-const oAuthClient = require("./oAuthClient");
+import oAuthClient from "./oAuthClient";
 const SCOPES = [
   "https://www.googleapis.com/auth/spreadsheets",
 ];
@@ -22,4 +22,4 @@ function authorize(userId) {
   // });
 }
 
-module.exports = authorize;
+export default authorize;

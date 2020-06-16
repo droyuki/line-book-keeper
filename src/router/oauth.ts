@@ -1,6 +1,6 @@
-const express = require("express");
-const oAuthClient = require("../auth/oAuthClient");
-const insertUser = require("../db/insertUser");
+import express from "express";
+import oAuthClient from "../auth/oAuthClient";
+import insertUser from "../db/insertUser";
 
 async function oauth(req, res) {
   const { code, state } = req.query;
@@ -10,7 +10,6 @@ async function oauth(req, res) {
       code
     );
     // oAuthClient.setCredentials(tokens);
-
     insertUser({
       ...tokens,
       userId: state,
@@ -26,4 +25,4 @@ const router = express.Router();
 
 router.get("/", oauth);
 
-module.exports = router;
+export default router;

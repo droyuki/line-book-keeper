@@ -1,5 +1,5 @@
-const express = require("express");
-const insertUser = require("../db/insertUser");
+import express from "express";
+import insertUser from "../db/insertUser";
 
 async function register(req, res) {
   try {
@@ -21,4 +21,4 @@ const router = express.Router();
 
 router.post("/", register);
 
-module.exports = router;
+export default router;
